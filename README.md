@@ -1,2 +1,38 @@
 # Regression-Discontinuity-Analysis-on-Bank-Debits
-The goal for the data scientist is to determine in this non-random assignment whether the incremental amount the bank earns exceeded the additional cost of assigning customers to a higher recovery strategy.
+## Problem Statement
+### The goal for the data scientist is to determine in this non-random assignment whether the incremental amount the bank earns exceeded the additional cost of assigning customers to a higher recovery strategy.
+The data scientist’s objective is to determine whether the incremental amount the bank earns from assigning customers to a higher recovery strategy exceeds the additional cost incurred in the process. This task involves analyzing data related to customer bank debits, recovery strategies, and associated costs. The analysis aims to measure the causal effect of a policy change (recovery strategy assignment) on the bank's earnings while accounting for the costs.
+
+Data Extraction:
+The first step is to extract data from various sources, including transactional databases, customer account records, and operational logs. The key variables include:
+
+Customer ID: Identifies each customer.
+Account Balance: The balance available in the customer’s account.
+Debit Transactions: Historical data of bank debits made by customers.
+Recovery Strategy: Indicates the strategy assigned to each customer, based on account balance or transaction history.
+Additional Recovery Costs: The cost incurred by the bank for applying a higher recovery strategy.
+Customer Demographics: Features such as age, location, and employment status, which might help explain customer behavior in response to recovery strategies.
+Data Preprocessing:
+Once the data is collected, it undergoes several preprocessing steps to ensure that it is clean and ready for analysis:
+
+Handling Missing Data: Any missing or incomplete values in the dataset are imputed or removed. For example, if some customers do not have information on recovery strategy assignment, these rows might need to be excluded or filled with a placeholder value.
+Outlier Detection: Outliers in key variables, such as extremely high account balances or unexpected debit amounts, are identified and addressed using techniques like z-scores or IQR-based filtering.
+Normalization: Features such as transaction amounts and recovery costs are normalized to a consistent scale to ensure comparability between variables.
+Categorical Variables Encoding: Categorical variables like the recovery strategy are encoded into numerical formats using techniques such as one-hot encoding or label encoding for machine learning models.
+Feature Transformation: Non-linear features, like account balance, might require logarithmic transformations to reduce skewness and make the data more suitable for regression analysis.
+Data Analysis:
+The core of the analysis is understanding the causal relationship between assigning higher recovery strategies and the bank’s earnings:
+
+Exploratory Data Analysis (EDA): Using visualizations such as histograms, scatter plots, and box plots, the data scientist explores the distribution of key variables like transaction amounts, account balance, and recovery costs. This helps identify patterns and relationships.
+Descriptive Statistics: Statistical summaries, including mean, median, standard deviation, and quartiles, are calculated to get an overview of the data’s central tendencies and spread.
+Correlation Analysis: To identify relationships between different variables, correlation matrices are created. This step helps identify potential multicollinearity and variables that may influence bank debits or recovery costs.
+Hypothesis Testing: Statistical tests, such as t-tests or ANOVA, can be applied to determine whether there are significant differences between customers assigned to different recovery strategies, considering both their debits and costs.
+Machine Learning and Feature Engineering:
+Machine learning plays a key role in determining whether the incremental earnings from the recovery strategy outweigh the additional costs:
+
+Feature Engineering: Additional features, such as interactions between the recovery strategy and account balance, or lagged variables indicating past transaction patterns, are created to improve the predictive power of models.
+Model Selection: Various machine learning algorithms are tested to predict the bank’s net earnings from each customer. This includes regression models (e.g., Linear Regression, Ridge, and Lasso) to estimate the relationship between recovery strategy assignment and bank earnings. Other models such as Random Forest and Gradient Boosting Machines (GBM) are used to capture non-linear relationships and interactions in the data.
+Model Evaluation: Cross-validation is performed to evaluate the robustness of the model. Performance metrics such as R-squared, Mean Squared Error (MSE), and Mean Absolute Error (MAE) are calculated to assess model accuracy.
+Model Interpretation: Feature importance is analyzed to understand the key drivers of bank earnings, highlighting whether the additional cost of recovery strategy assignment is justified by the incremental earnings generated by customers.
+Outcome and Insights:
+The final step involves drawing insights from the machine learning models and statistical tests. If the model shows that customers assigned to higher recovery strategies generate a significant increase in debits that exceeds the additional costs incurred by the bank, the higher recovery strategy is deemed effective. Conversely, if the cost outweighs the benefit, the bank may reconsider its recovery strategy. This analysis will provide actionable insights for optimizing the bank's customer recovery approach, ensuring profitability while minimizing unnecessary costs.
